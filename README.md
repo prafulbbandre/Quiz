@@ -1,2 +1,1 @@
-# Website
-simple website
+# Quiz app
