@@ -5,7 +5,7 @@ const scoreText = document.getElementById("score");
 const progressBarFull = document.getElementById("progressBarFull");
 
 let currentQuestion = {};
-let acceptingAnswers = false;
+let acceptingAnswers = true;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
@@ -62,18 +62,18 @@ getNewQuestion = () => {
 
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
-  question.innertext = currentQuestion.question;
+  question.innerText = currentQuestion.question;
 
-  choices.forEach((choice) => {
+  choices.forEach(choice => {
     const number = choice.dataset["number"];
-    choice.innertext = currentQuestion["choice" + number];
+    choice.innerText = currentQuestion["choice" + number];
   });
 
   availableQuestions.splice(questionIndex, 1);
   acceptingAnswers = true;
 };
 
-choices.forEach((choice) => {
+choices.forEach(choice => {
   choice.addEventListener("click", (e) => {
     if (!acceptingAnswers) return;
 
